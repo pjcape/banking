@@ -28,7 +28,7 @@ import { signIn, signUp } from '@/lib/actions/user.actions';
 
 
 const AuthForm = ({ type }: { type: string }) => {
-    const router = useRouter;
+    const router = useRouter();
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -60,9 +60,9 @@ const AuthForm = ({ type }: { type: string }) => {
                     email: data.email,
                     password: data.password
                 })
-                if (response) {
-                    router.push('/');
-                }
+
+                if (response) router.push('/')
+
             }
         } catch (error) {
             console.log(error);
